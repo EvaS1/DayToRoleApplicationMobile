@@ -7,7 +7,7 @@ export default class Form extends React.Component {
       <View style={styles.formContainer}>
         <TextInput
             placeholder='Username'
-            placeholderTextColor='#292929'            
+            placeholderTextColor='#292929'
             style={styles.textInput}
             underlineColorAndroid={'transparent'} />
         <TextInput

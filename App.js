@@ -10,7 +10,7 @@ import {
 export default class App extends React.Component {
   render() {
     return (
-      <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={styles.wrapper}>
         <ImageBackground style={styles.container} source={require('./Img/wood.jpg')}>
           <Text style={styles.header}>LOGIN</Text>
           <Form />
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     width: null,
     justifyContent: 'center',
     alignItems: 'center'
+
   },
   header: {
     fontSize: 30,
