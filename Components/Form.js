@@ -1,35 +1,51 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, KeyboardAvoidingView, ImageBackground } from 'react-native'
 
 export default class Form extends React.Component {
   render() {
     return (
-      <View style={styles.formContainer}>
-        <TextInput
-            placeholder='Username'
-            placeholderTextColor='#292929'
-            style={styles.textInput}
-            underlineColorAndroid={'transparent'} />
-        <TextInput
-            placeholder='Password'
-            placeholderTextColor='#292929'
-            secureTextEntry={true}
-            style={styles.textInput}
-            underlineColorAndroid={'transparent'} />
-
-
-        <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttontext}>Login</Text>
-        </TouchableOpacity>
-      </View>
-
-
-
+      //<View style={styles.formContainer}>
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={styles.wrapper}>
+          <ImageBackground style={styles.container} source={require('../Img/wood.jpg')}>
+            <Text style={styles.header}>LOGIN</Text>        
+            <TextInput
+                placeholder='Username'
+                placeholderTextColor='#292929'
+                style={styles.textInput}
+                underlineColorAndroid={'transparent'} />
+            <TextInput
+                placeholder='Password'
+                placeholderTextColor='#292929'
+                secureTextEntry={true}
+                style={styles.textInput}
+                underlineColorAndroid={'transparent'} />
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttontext}>Login</Text>
+            </TouchableOpacity>
+          </ImageBackground>
+        </KeyboardAvoidingView>
+      //</View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1
+  },
+  container: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  header: {
+    fontSize: 30,
+    color: '#aaa',
+    fontWeight: 'bold',
+    marginBottom: 50
+  },
   formContainer: {
     alignSelf: 'stretch',
     paddingLeft: 20,
