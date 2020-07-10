@@ -14,7 +14,7 @@ import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { Container, Header, Content, Button, Icon, Right } from 'native-base';
 
-let isSignedIn = true;
+let isSignedIn = false;
 const Drawer = createDrawerNavigator();
 
 function DrawerMenu() {

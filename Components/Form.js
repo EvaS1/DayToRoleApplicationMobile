@@ -4,10 +4,10 @@ import { StyleSheet, View, TextInput, Text, TouchableOpacity, KeyboardAvoidingVi
 export default class Form extends React.Component {
   render() {
     return (
-      //<View style={styles.formContainer}>
+      <View style={styles.container}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={styles.wrapper}>
-          <ImageBackground style={styles.container} source={require('../Img/wood.jpg')}>
-            <Text style={styles.header}>LOGIN</Text>        
+          {/* <ImageBackground style={styles.container} source={require('../Img/wood.jpg')}> */}
+            <Text style={styles.header}>Connexion</Text>        
             <TextInput
                 placeholder='Username'
                 placeholderTextColor='#292929'
@@ -20,30 +20,32 @@ export default class Form extends React.Component {
                 style={styles.textInput}
                 underlineColorAndroid={'transparent'} />
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttontext}>Login</Text>
+              <Text style={styles.buttontext}>Connexion</Text>
             </TouchableOpacity>
-          </ImageBackground>
+          {/* </ImageBackground> */}
         </KeyboardAvoidingView>
-      //</View>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   wrapper: {
+    marginTop: 80,
     flex: 1
   },
   container: {
     flex: 1,
     alignSelf: 'stretch',
-    width: null,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 20,
+    marginHorizontal: 10
   },
   header: {
-    fontSize: 30,
-    color: '#aaa',
-    fontWeight: 'bold',
+    fontFamily: 'Oswald',
+    fontSize: 28,
+    color: '#993030',
     marginBottom: 50
   },
   formContainer: {
@@ -56,18 +58,37 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: 'rgba(255,255,255,0.7)',
     marginBottom: 20,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3.84,
   },
   button: {
     alignSelf: 'stretch',
     marginTop: 20,
-    backgroundColor: 'rgba(255,255,255,0.8)',
     alignItems: 'center',
-    padding: 20,
-    borderWidth: 1,
-    borderColor: '#000'
+    padding: 20
   },
   buttontext: {
-    color: '#292929',
-    fontSize: 16
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    color: '#fff',
+    backgroundColor: '#13a7af',
+    paddingVertical: 5,
+    paddingHorizontal: 25,
+    borderRadius: 20,
+    marginBottom: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3.84,
+    elevation: 5,
   }
 })
