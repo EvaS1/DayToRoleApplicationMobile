@@ -19,6 +19,13 @@ function GamesScreen({navigation}) {
             </View>
           <View style={styles.main_container}>
             <Text style={styles.title1}>Mes parties</Text>
+              <View style={styles.game_container}>
+                <Text style={styles.game_title1}>Ma première partie</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Game')}>
+                  <Image style={styles.game_icon} source={require('../Img/testgame.jpg')}/>
+                </TouchableOpacity>
+
+              </View>
           </View>                  
         </View>
     );
@@ -73,11 +80,30 @@ const styles = StyleSheet.create({
     },
     main_container: {
       flex: 4,
+      marginBottom: 20,
       textAlign: 'center',
+      alignItems: 'center'
     },
     title1: {
       fontFamily: 'Oswald',
       fontSize: 28,
       color: '#993030',
+    },
+    game_container: {
+      marginTop: 40,
+      marginBottom: 20,
+      alignContent: 'center'
+
+    },
+    game_title1: {
+      marginBottom: 20,
+      fontFamily: 'Oswald',
+      fontSize: 15,
+      color: '#993030',
+    },
+    game_icon: {
+      marginTop: 50,
+      width: 130,
+      resizeMode: 'contain'
     }
 })

@@ -2,6 +2,64 @@ import React from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, KeyboardAvoidingView, ImageBackground } from 'react-native'
 
 export default class Form extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      username:'',
+      password:''
+    }
+  }
+  login = () => {
+    const {userEmail,userPassword} = this.state;
+		let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+		if(userEmail==""){
+			//alert("Please enter Email address");
+		  this.setState({email:'Please enter Email address'})
+			
+		}
+		
+		else if(reg.test(userEmail) === false)
+		{
+		//alert("Email is Not Correct");
+		this.setState({email:'Email is Not Correct'})
+		return false;
+		  }
+
+		else if(userPassword==""){
+		this.setState({email:'Please enter password'})
+		}
+		else{
+		
+		fetch('https://hardeepwork.000webhostapp.com/react/login.php',{
+			method:'post',
+			header:{
+				'Accept': 'application/json',
+				'Content-type': 'application/json'
+			},
+			body:JSON.stringify({
+				email: userEmail,
+				password: userPassword
+			})
+			
+		})
+		.then((response) => response.json())
+		 .then((responseJson)=>{
+			 if(responseJson == "ok"){
+				 // redirect to profile page
+				 alert("Successfully Login");
+				 this.props.navigation.navigate("Profile");
+			 }else{
+				 alert("Wrong Login Details");
+			 }
+		 })
+		 .catch((error)=>{
+		 console.error(error);
+		 });
+		}
+		
+		
+		Keyboard.dismiss();
+  }
   render() {
     return (
       <View style={styles.container}>

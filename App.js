@@ -7,14 +7,15 @@ import Games from './Components/Games'
 import Stats from './Components/Stats'
 import Account from './Components/Account'
 import Settings from './Components/Settings'
+import Game from './Components/Game'
 import { StyleSheet, Image, StatusBar } from 'react-native';
 import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer';
-import { NavigationContainer, DrawerActions } from '@react-navigation/native';
+import { NavigationContainer, DrawerActions, StackActions } from '@react-navigation/native';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { Container, Header, Content, Button, Icon, Right } from 'native-base';
 
-let isSignedIn = false;
+let isSignedIn = true;
 const Drawer = createDrawerNavigator();
 
 function DrawerMenu() {
@@ -147,6 +148,7 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
        <DrawerMenu/>
+       <Drawer.Screen name={"Game"} component={Game} />
       </NavigationContainer>
     )
   }
